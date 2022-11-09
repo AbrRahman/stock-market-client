@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthProvider } from '../../context/authContext/AuthContext';
 const Register = () => {
+    const navigate = useNavigate();
     const { user, signUpWithGoogle, signUpWidthEmailPassword } = useContext(AuthProvider)
     // handel google signUp 
     const handleGoogleSignup = () => {
@@ -28,6 +29,7 @@ const Register = () => {
         signUpWidthEmailPassword(email, password)
             .then(result => {
                 const user = result.user;
+                navigate('/login');
                 console.log(user);
             }).catch(err => {
                 console.log(err.message)

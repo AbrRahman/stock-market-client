@@ -21,7 +21,7 @@ const ServiceCard = ({ service }) => {
                     <h4 className='text-warning '>Price : {price}$</h4>
                 </Card.Body>
                 <Card.Footer className=''>
-                    <Link to={`/service/:${_id}`}> <Button className='btn-sm'>Details</Button></Link>
+                    <Link to={`/service/${_id}`}> <Button className='btn-sm'>Details</Button></Link>
                 </Card.Footer>
             </Card>
         </Col>

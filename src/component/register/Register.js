@@ -2,11 +2,12 @@ import React, { useContext } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { FaGoogle } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthProvider } from '../../context/authContext/AuthContext';
 const Register = () => {
     const navigate = useNavigate();
-    const { user, signUpWithGoogle, signUpWidthEmailPassword } = useContext(AuthProvider)
+    const { user, signUpWithGoogle, signUpWidthEmailPassword, setDisplayNameAndPhotoUrl } = useContext(AuthProvider)
     // handel google signUp 
     const handleGoogleSignup = () => {
         signUpWithGoogle()
@@ -25,14 +26,30 @@ const Register = () => {
         const photoUrl = form.photoUrl.value;
         const email = form.email.value;
         const password = form.password.value;
+        const setNameAndPhotoUrl = {
+            displayName: name,
+            photoURL: photoUrl
+        }
         console.log(name, photoUrl, email, password)
         signUpWidthEmailPassword(email, password)
             .then(result => {
                 const user = result.user;
                 navigate('/login');
+                updateUserProfile(setNameAndPhotoUrl)
                 console.log(user);
             }).catch(err => {
                 console.log(err.message)
+            })
+    }
+
+    // update user profile
+    const updateUserProfile = (updateInfo) => {
+        setDisplayNameAndPhotoUrl(updateInfo)
+            .then(() => {
+                console.log('user update success')
+            })
+            .catch(err => {
+                console.log(err)
             })
     }
     return (
@@ -67,11 +84,11 @@ const Register = () => {
                         </Form.Group>
                         <div className='mt-4'>
                             <Button variant="primary" className='me-2' type="submit">
-                                Submit
+                                Register
                             </Button>
                             <span className='mt-3 ms-2'>Already have account? <Link to='/login'><small>Login</small></Link></span>
                             <br />
-                            <Button onClick={handleGoogleSignup} variant='outline-primary' className='mt-3'>SignUp Width Google</Button>
+                            <Button onClick={handleGoogleSignup} variant='outline-primary' className='mt-3'>SignUp Width Google <FaGoogle></FaGoogle></Button>
                         </div>
                     </Form>
                 </Col>

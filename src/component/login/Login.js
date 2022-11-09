@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthProvider } from '../../context/authContext/AuthContext';
 const Login = () => {
@@ -58,7 +59,7 @@ const Login = () => {
                             </Button>
                             <span className='mt-3 ms-2'>Don't have account? <Link to='/register'><small>Register</small></Link></span>
                             <br />
-                            <Button onClick={handleGoogleLogin} variant='outline-primary' className='mt-3'>SignUp Width Google</Button>
+                            <Button onClick={handleGoogleLogin} variant='outline-primary' className='mt-3'>SignUp Width Google <FaGoogle></FaGoogle></Button>
                         </div>
                     </Form>
                 </Col>

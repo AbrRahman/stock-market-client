@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import { AuthProvider } from '../../context/authContext/AuthContext';
 const Register = () => {
+    const { user } = useContext(AuthProvider)
+    console.log(user)
+    // handel email password register
+    const handelRegister = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photoUrl = form.photoUrl.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name, photoUrl, email, password)
+    }
     return (
         <Container className='mt-3'>
 
@@ -16,21 +29,21 @@ const Register = () => {
                 <Col lg={6} md={12} className='p-3'>
                     <h3 className='text-center my-3'>Register now</h3>
 
-                    <Form style={{ maxWidth: '500px' }}>
-                        <Form.Group className="mb-2" controlId="formBasicName">
+                    <Form onSubmit={handelRegister} style={{ maxWidth: '500px' }}>
+                        <Form.Group className="mb-2" >
                             <Form.Label>Name</Form.Label>
                             <Form.Control type="text" name='name' placeholder="Enter Name" />
                         </Form.Group>
-                        <Form.Group className="mb-2" controlId="formBasicPhotoUrl">
+                        <Form.Group className="mb-2" >
                             <Form.Label>Photo URL</Form.Label>
                             <Form.Control type="text" name='photoUrl' placeholder="Photo URL" />
                         </Form.Group>
-                        <Form.Group className="mb-2" controlId="formBasicEmail">
+                        <Form.Group className="mb-2">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" name='email' placeholder="Enter email" />
                         </Form.Group>
 
-                        <Form.Group className="mb-2" controlId="formBasicPassword">
+                        <Form.Group className="mb-2">
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" name='password' placeholder="Password" />
                         </Form.Group>

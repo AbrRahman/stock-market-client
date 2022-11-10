@@ -10,7 +10,7 @@ const Service = () => {
             <h3 className='text-center py-4'>Our Service</h3>
             <Row xs={1} sm={1} md={2} lg={3} className="g-4">
                 {
-                    services.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)
+                    services?.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)
                 }
             </Row>
         </Container>

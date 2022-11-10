@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { AuthProvider } from '../../context/authContext/AuthContext';
 const Header = () => {
     const { logOut, user } = useContext(AuthProvider)
-    console.log(user?.uid)
+    console.log(user)
     const handelLogOut = () => {
         logOut()
             .then(() => {
@@ -27,8 +27,10 @@ const Header = () => {
                             <Nav.Link as={Link} to='/'>Home</Nav.Link>
                             <Nav.Link as={Link} to='/service'>Service</Nav.Link>
                             <Nav.Link as={Link} to='/blog'>Blog</Nav.Link>
+
                             {
                                 user && user?.uid ? <>
+                                    <Nav.Link as={Link} to='/my-reviews'>My Reviews</Nav.Link>
                                     <Nav.Link onClick={handelLogOut}><Button>LogOut</Button></Nav.Link>
                                 </> : <>
                                     <Nav.Link as={Link} to='/login'><Button>Login</Button></Nav.Link>

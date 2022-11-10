@@ -11,7 +11,7 @@ const ServiceDetails = () => {
     console.log(user)
     const serviceDetails = useLoaderData();
     const { name, image, price, details, _id } = serviceDetails;
-
+    console.log(userReview)
     // add review data
     const handelReview = (event) => {
         event.preventDefault()

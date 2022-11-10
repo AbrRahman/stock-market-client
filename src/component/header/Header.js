@@ -30,6 +30,7 @@ const Header = () => {
 
                             {
                                 user && user?.uid ? <>
+                                    <Nav.Link as={Link} to='/add-service'>Add Service</Nav.Link>
                                     <Nav.Link as={Link} to='/my-reviews'>My Reviews</Nav.Link>
                                     <Nav.Link onClick={handelLogOut}><Button>LogOut</Button></Nav.Link>
                                 </> : <>

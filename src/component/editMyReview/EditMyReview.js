@@ -21,7 +21,7 @@ const EditMyReview = () => {
         }).then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    toast.success('Delete success')
+                    toast.success('Update success')
                     navigate('/my-reviews')
                 }
             })

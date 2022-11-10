@@ -2,17 +2,23 @@ import React, { useContext } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Helmet } from 'react-helmet-async';
+import toast from 'react-hot-toast';
 import { FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthProvider } from '../../context/authContext/AuthContext';
 const Login = () => {
+    let navigate = useNavigate();
+    let location = useLocation();
     const { emailPasswordLogin, signUpWithGoogle } = useContext(AuthProvider)
+    let from = location.state?.from?.pathname || "/";
     // handel google sing in 
     const handleGoogleLogin = () => {
         signUpWithGoogle()
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                toast.success('Sign up add success')
+                navigate(from, { replace: true });
             }).catch(err => {
                 console.log(err.message)
             })
@@ -27,13 +33,17 @@ const Login = () => {
         emailPasswordLogin(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                toast.success('LogIn success')
+                navigate(from, { replace: true });
             }).catch(err => {
                 console.log(err.message)
             })
     }
     return (
         <Container className='mt-3'>
+            <Helmet>
+                <title>Stock Market-Login</title>
+            </Helmet>
             <Row className=''>
                 <Col lg={6} md={12}>
                     <div>

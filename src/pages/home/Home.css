@@ -1,0 +1,8 @@
+.home-top-banner{
+    background-image: url("https://img.freepik.com/free-photo/aerial-view-business-team_53876-124515.jpg?w=900&t=st=1668066100~exp=1668066700~hmac=d806cf59174449033cd5e801c7dea61bdc7238690edfab59a7af828d827229ef"), linear-gradient(to bottom, rgba(0, 0, 0, 0.342) 0%,rgba(0, 0, 0, 0.281) 100%); 
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 90vh;
+}

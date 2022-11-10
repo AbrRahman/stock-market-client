@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Helmet } from 'react-helmet-async';
+import toast from 'react-hot-toast';
 import { FaGoogle } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthProvider } from '../../context/authContext/AuthContext';
@@ -36,7 +38,7 @@ const Register = () => {
                 const user = result.user;
                 navigate('/login');
                 updateUserProfile(setNameAndPhotoUrl)
-                console.log(user);
+                toast.success('Sing up success')
             }).catch(err => {
                 console.log(err.message)
             })
@@ -54,7 +56,9 @@ const Register = () => {
     }
     return (
         <Container className='mt-3'>
-
+            <Helmet>
+                <title>Stock Market-Register</title>
+            </Helmet>
             <Row className=''>
                 <Col lg={6} md={12}>
                     <div>

@@ -3,15 +3,18 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthProvider } from '../../context/authContext/AuthContext';
 const Header = () => {
+    const navigate = useNavigate()
     const { logOut, user } = useContext(AuthProvider)
     console.log(user)
     const handelLogOut = () => {
         logOut()
             .then(() => {
-                alert('LogOut success')
+                toast.success('LogOut Success')
+                navigate('/login')
             }).catch(err => {
                 console.log(err)
             })

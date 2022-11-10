@@ -1,8 +1,12 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { Helmet } from 'react-helmet-async';
 const Blog = () => {
     return (
         <Container className='my-4'>
+            <Helmet>
+                <title>Stock Market-Blog</title>
+            </Helmet>
             <Row className='g-4'>
                 <Col sm={12} md={6} lg={6}>
                     <div className='p-4'>

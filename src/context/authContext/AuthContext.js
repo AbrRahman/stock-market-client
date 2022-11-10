@@ -50,6 +50,7 @@ const AuthContext = ({ children }) => {
         logOut,
         setDisplayNameAndPhotoUrl,
         emailPasswordLogin,
+        loading
     }
     return (
         <AuthProvider.Provider value={authInfo}>

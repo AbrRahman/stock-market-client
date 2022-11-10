@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 import { AuthProvider } from '../../context/authContext/AuthContext';
@@ -58,6 +59,9 @@ const ServiceDetails = () => {
         <>
             {/* service details section */}
             <section className='my-5'>
+                <Helmet>
+                    <title>Stock Market-Service Details</title>
+                </Helmet>
                 <Container>
                     <h3 className='text-center py-4'>Service Details</h3>
                     <Row>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import { AuthProvider } from '../../context/authContext/AuthContext';
 const MyReviews = () => {
     const { user } = useContext(AuthProvider);
@@ -51,7 +52,7 @@ const MyReviews = () => {
                         myReviews?.map(review => <tr key={review._id}>
                             <td>{review.serviceName}</td>
                             <td>{review.reviewMsg}</td>
-                            <td><Button>Edit</Button></td>
+                            <td><Link to={`/my-reviews/${review._id}`}><Button>Edit</Button></Link></td>
                             <td><Button onClick={() => handelDeleteReview(review._id)} variant='danger'>Delete</Button></td>
                         </tr>)
                     }

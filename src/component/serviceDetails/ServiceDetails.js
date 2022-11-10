@@ -76,7 +76,7 @@ const ServiceDetails = () => {
             </section>
 
             {/* section service review */}
-            <section>
+            <section className='mb-5'>
                 <Container>
                     <h3 className='text-center py-4'>User Reviews</h3>
                     {

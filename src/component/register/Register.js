@@ -15,7 +15,6 @@ const Register = () => {
         signUpWithGoogle()
             .then(result => {
                 const user = result.user;
-                console.log(user)
             }).catch(err => {
                 console.log(err.message)
             })

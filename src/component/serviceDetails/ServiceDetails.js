@@ -28,7 +28,7 @@ const ServiceDetails = () => {
                 reviewerImage: user.phoneNumber,
                 reviewMsg: review
             }
-            fetch('http://localhost:8000/review', {
+            fetch('https://stock-market-server.vercel.app/review', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'
@@ -51,7 +51,7 @@ const ServiceDetails = () => {
     }
     // get Usr review data
     useEffect(() => {
-        fetch(`http://localhost:8000/review/${_id}`)
+        fetch(`https://stock-market-server.vercel.app/review/${_id}`)
             .then(res => res.json())
             .then(data => setUserReview(data))
     }, [])

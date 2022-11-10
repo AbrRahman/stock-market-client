@@ -17,6 +17,16 @@ const Login = () => {
         signUpWithGoogle()
             .then(result => {
                 const user = result.user;
+                fetch('https://stock-market-server.vercel.app/jwt', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: user.email })
+                }).then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('stock-market-token', data.token)
+                    })
                 toast.success('Sign up add success')
                 navigate(from, { replace: true });
             }).catch(err => {
@@ -33,6 +43,16 @@ const Login = () => {
         emailPasswordLogin(email, password)
             .then(result => {
                 const user = result.user;
+                fetch('https://stock-market-server.vercel.app/jwt', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: user.email })
+                }).then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('stock-market-token', data.token)
+                    })
                 toast.success('LogIn success')
                 navigate(from, { replace: true });
             }).catch(err => {

@@ -12,7 +12,7 @@ const EditMyReview = () => {
         const form = event.target;
         const updateReview = form.newReview.value;
         console.log(updateReview);
-        fetch(`http://localhost:8000/my-reviews/${review._id}`, {
+        fetch(`https://stock-market-server.vercel.app/my-reviews/${review._id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

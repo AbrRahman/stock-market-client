@@ -17,7 +17,7 @@ const AddService = () => {
             price: price,
             details: details
         }
-        fetch('http://localhost:8000/service', {
+        fetch('https://stock-market-server.vercel.app/service', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

@@ -12,7 +12,7 @@ const MyReviews = () => {
     // delete service
     const handelDeleteReview = (id) => {
         if (window.confirm('Are you sure delete')) {
-            fetch(`http://localhost:8000/my-reviews/${id}`, {
+            fetch(`https://stock-market-server.vercel.app/my-reviews/${id}`, {
                 method: "DELETE"
             }).then(res => res.json())
                 .then(data => {
@@ -26,10 +26,11 @@ const MyReviews = () => {
     }
     // Load review data
     useEffect(() => {
-        fetch('http://localhost:8000/my-reviews', {
+        fetch('https://stock-market-server.vercel.app/my-reviews', {
             method: "POST",
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+
             },
             body: JSON.stringify({ email })
         }).then(res => res.json())

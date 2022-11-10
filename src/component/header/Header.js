@@ -9,7 +9,6 @@ import { AuthProvider } from '../../context/authContext/AuthContext';
 const Header = () => {
     const navigate = useNavigate()
     const { logOut, user } = useContext(AuthProvider)
-    console.log(user)
     const handelLogOut = () => {
         logOut()
             .then(() => {

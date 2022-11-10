@@ -18,14 +18,14 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                loader: () => fetch('http://localhost:8000/service?limit=3'),
+                loader: () => fetch('https://stock-market-server.vercel.app/service?limit=3'),
                 element: <Home></Home>
             },
             { path: '/login', element: <Login></Login> },
             { path: '/register', element: <Register></Register> },
             {
                 path: '/service',
-                loader: () => fetch('http://localhost:8000/service'),
+                loader: () => fetch('https://stock-market-server.vercel.app/service'),
                 element: <Service></Service>
             },
             {
@@ -34,7 +34,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/service/:id',
-                loader: ({ params }) => fetch(`http://localhost:8000/service/${params.id}`),
+                loader: ({ params }) => fetch(`https://stock-market-server.vercel.app/service/${params.id}`),
                 element: <ServiceDetails></ServiceDetails>
             },
             {
@@ -42,7 +42,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/my-reviews/:id',
-                loader: ({ params }) => fetch(`http://localhost:8000/my-reviews/${params.id}`),
+                loader: ({ params }) => fetch(`https://stock-market-server.vercel.app/my-reviews/${params.id}`),
                 element: <PrivateRouter><EditMyReview></EditMyReview></PrivateRouter>
             },
             { path: '/blog', element: <Blog></Blog> }

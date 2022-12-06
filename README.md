@@ -1,5 +1,5 @@
 # Sitel Link : https://moonlit-crepe-8aa67c.netlify.app/
-# Site name : Stock Narket
+# Site name : Stock Market
 # Useing Technology
 ### 1. vanilla javascrip
 ### 2. react js
